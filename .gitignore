@@ -1,0 +1,6 @@
+*.pyc
+.DS_Store
+.idea/
+.python-version
+public/inventory/db.sqlite3
+public/inventory/settings.json
