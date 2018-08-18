@@ -50,13 +50,8 @@ class ItemAdmin(admin.ModelAdmin):
             }
         ),
     ]
-
-    inlines = [
-        ItemAttachmentInline,
-    ]
-
+    inlines = [ItemAttachmentInline,]
     list_display = (
-        'id',
         'name',
         'description',
         'value',
@@ -66,6 +61,7 @@ class ItemAdmin(admin.ModelAdmin):
         'admin_thumbnail',
         'attachments',
     )
+    ordering = ['id']
     search_fields = ['name']
 
 
