@@ -3,4 +3,8 @@
 .idea/
 .python-version
 public/inventory/db.sqlite3
+public/inventory/__pycache__/
+public/inventory/inventory/__pycache__/
+public/inventory/inventory/migrations/__pycache__/
+public/inventory/media/
 public/inventory/settings.json
