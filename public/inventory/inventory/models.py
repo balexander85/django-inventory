@@ -27,11 +27,13 @@ class Item(models.Model):
         return self.name
 
     def admin_thumbnail(self):
-        return mark_safe(
-            f'<a href="{self.profile_image.url}">'
-            f'<img src="{self.profile_image.url}" width="150" height="150" />'
-            f'</a>'
-        )
+        if self.profile_image:
+            image_url = self.profile_image.url
+            return mark_safe(
+                f'<a href="{image_url}">'
+                f'<img src="{image_url}" width="150" height="150" />'
+                f'</a>'
+            )
 
     admin_thumbnail.short_description = 'Profile Image'
 
