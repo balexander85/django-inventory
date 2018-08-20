@@ -22,13 +22,13 @@ class ExportCsvMixin:
 
         return response
 
-    export_as_csv.short_description = "Export Selected"
+    export_as_csv.short_description = 'Export Selected'
 
 
 class ItemAttachmentAdmin(admin.ModelAdmin):
     fieldsets = [
         (
-            "ItemType",
+            'ItemType',
             {
                 'fields': ['name', 'attachment', 'item']
             }
@@ -46,7 +46,7 @@ class ItemAttachmentInline(admin.TabularInline):
 class ItemTypeAdmin(admin.ModelAdmin):
     fieldsets = [
         (
-            "ItemType",
+            'ItemType',
             {
                 'fields': ['name', ]
             }
@@ -58,10 +58,10 @@ class ItemTypeAdmin(admin.ModelAdmin):
 
 
 class ItemAdmin(admin.ModelAdmin, ExportCsvMixin):
-    actions = ["export_as_csv"]
+    actions = ['export_as_csv']
     fieldsets = [
         (
-            "Item",
+            'Item',
             {
                 'fields': [
                     'name',
