@@ -43,6 +43,7 @@ class Item(models.Model):
                 [
                     f'<a href="{x.attachment.url}">{x}</a>'
                     for x in self.itemattachment_set.model.objects.all()
+                    if x.item_id == self.id
                 ]
             )
         )
