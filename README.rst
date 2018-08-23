@@ -18,11 +18,22 @@ Quick start
         'inventory',
     ]
 
-2. Include the polls URLconf in your project urls.py like this::
+2. Add media_root and media_url to settings.py like this::
 
-    path('inventory/', include('inventory.urls')),
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+    MEDIA_URL = '/media/'
 
-3. Run `python manage.py migrate` to create the inventory models.
+3. Add following to urls.py::
 
-4. Start the development server and visit http://127.0.0.1:8000/admin/
+    from django.conf import settings
+    from django.conf.urls.static import static
+
+    urlpatterns = [
+    path('admin/', admin.site.urls),
+    ...
+    ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+4. Run `python manage.py migrate` to create the inventory models.
+
+5. Start the development server and visit http://127.0.0.1:8000/admin/
    to create and manage inventory (you'll need the Admin app enabled).
