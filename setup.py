@@ -11,11 +11,12 @@ setup(
     name='django-inventory',
     version='0.1',
     packages=find_packages(),
+    install_requires=['pillow'],
     include_package_data=False,
     license='MIT License',
     description='A simple Django app for managing an inventory log of items.',
     long_description=README,
-    url='https://www.dadgumempire.com/',
+    url='https://github.com/balexander85/django-inventory',
     author='Brian Alexander',
     author_email='brian@dadgumsalsa.com',
     classifiers=[
