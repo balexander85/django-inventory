@@ -8,42 +8,98 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Item',
+            name="Item",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=50)),
-                ('insured', models.BooleanField(default=False)),
-                ('description', models.CharField(blank=True, default='', max_length=500)),
-                ('value', models.DecimalField(decimal_places=2, default=0.0, max_digits=10)),
-                ('profile_image', models.ImageField(blank=True, null=True, upload_to='images/%Y/%m', verbose_name='Image')),
-                ('created_date', models.DateTimeField(auto_now_add=True)),
-                ('last_updated', models.DateTimeField(auto_now=True)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=50)),
+                ("insured", models.BooleanField(default=False)),
+                (
+                    "description",
+                    models.CharField(blank=True, default="", max_length=500),
+                ),
+                (
+                    "value",
+                    models.DecimalField(decimal_places=2, default=0.0, max_digits=10),
+                ),
+                (
+                    "profile_image",
+                    models.ImageField(
+                        blank=True,
+                        null=True,
+                        upload_to="images/%Y/%m",
+                        verbose_name="Image",
+                    ),
+                ),
+                ("created_date", models.DateTimeField(auto_now_add=True)),
+                ("last_updated", models.DateTimeField(auto_now=True)),
             ],
         ),
         migrations.CreateModel(
-            name='ItemAttachment',
+            name="ItemAttachment",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=20)),
-                ('attachment', models.FileField(blank=True, null=True, upload_to='files/%Y/%m', verbose_name='Attachment')),
-                ('item', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='inventory.Item')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=20)),
+                (
+                    "attachment",
+                    models.FileField(
+                        blank=True,
+                        null=True,
+                        upload_to="files/%Y/%m",
+                        verbose_name="Attachment",
+                    ),
+                ),
+                (
+                    "item",
+                    models.ForeignKey(
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="inventory.Item",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='ItemType',
+            name="ItemType",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=20)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=20)),
             ],
         ),
         migrations.AddField(
-            model_name='item',
-            name='item_type',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='inventory.ItemType'),
+            model_name="item",
+            name="item_type",
+            field=models.ForeignKey(
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                to="inventory.ItemType",
+            ),
         ),
     ]
