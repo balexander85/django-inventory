@@ -15,7 +15,7 @@ class Item(models.Model):
     description = models.CharField(max_length=500, default="", blank=True)
     value = models.DecimalField(default=0.00, max_digits=10, decimal_places=2)
     profile_image = models.ImageField(
-        "Image", upload_to="images/%Y/%m", null=True, blank=True
+        "image", upload_to="images/%Y/%m", null=True, blank=True
     )
     created_date = models.DateTimeField(auto_now_add=True)
     last_updated = models.DateTimeField(auto_now=True)
