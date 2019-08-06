@@ -13,6 +13,7 @@ Quick start
 
 1. Add "inventory" to your INSTALLED_APPS setting like this::
 
+
     INSTALLED_APPS = [
         ...
         'inventory',
@@ -20,10 +21,12 @@ Quick start
 
 2. Add media_root and media_url to settings.py like this::
 
+
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
     MEDIA_URL = '/media/'
 
 3. Add following to urls.py::
+
 
     from django.conf import settings
     from django.conf.urls.static import static
